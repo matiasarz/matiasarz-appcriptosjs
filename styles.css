@@ -189,6 +189,8 @@ button a {
 }
 .listCriptoFlex .cardTop10 {
     flex-grow: 1;
+    min-width: 220px;
+    max-width: 500px;
     padding: 10px;
     display: flex;
     flex-direction: column;
