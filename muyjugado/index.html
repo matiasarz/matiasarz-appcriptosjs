@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CriptoApp</title>
+    <link rel="shortcut icon" href="image/logoof.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/083810b2a0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header class="header">
+        <div id="bar">
+            <div class="fa-solid fa-bars"></div>
+        </div>
+        <nav class="nav" id="nav">
+            <ul>
+                <li><a href="">Inicio</a></li>
+                <li><a href="#listCripto">Lista</a></li>
+                <li><a href="#">Mas cripto</a></li>
+                <li><a href="#">Top 10</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="moreChanges">
+            <h2>Cripto con mayores cambios porcentuales en 24hs</h2>
+        </section>
+        
+        <section id="listCripto" class="listCripto">
+            <h2>Lista critomonedas</h2>
+            <article class="articleHeader">
+                <span>#</span>
+                <div class="infoName">
+                    <p class="name">Nombre</p>
+                    <span class="symbol">°</span>
+                </div>
+                <p class="price">Precio</p>
+                <div class="infoChange">
+                    <p class="porcentChange">Cambio</p><span>%</span>
+                </div>
+                <p>Cripto</p>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footerSub">
+            <img src="https://s.yimg.com/ny/api/res/1.2/JYUmETjO_dK1Cj2wJS49rw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTM2MA--/https://s.yimg.com/uu/api/res/1.2/kdAptSJOJDBENhZ8xqK0UA--~B/aD0xNDQwO3c9MjU2MDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/es/forbes_argentina_485/cc9fd43609b23f27434a222128a55412" alt="logo">
+            <div class="flexFooter">
+                <div>
+                    <p>Terminos y condiciones</p>
+                </div>
+                <div>
+                    <a href="https://es.wikipedia.org/wiki/Trading">Que es el trading</a>
+                </div>
+            </div>
+        </div>
+        <p class="developer">Desarrollado por Matias Arzamendia</p>
+    </footer>   
+
+    <template id="moreChanges">
+        <article>
+            <img src="">
+            <p>Price</p>
+            <p class="criptoChange">%change</p>
+        </article>
+    </template>
+
+    <template id="listCriptoTemplate">
+        <article>
+            <span>#2</span>
+            <div class="infoName">
+                <p class="name">nombre</p>
+                <span class="symbol">dsfsa</span>
+            </div>
+            <p class="price">1000</p>
+            <div class="infoChange">
+                <p class="porcentChange">2000</p><span>%</span>
+            </div>
+            <img src="" alt="cripto-image">
+        </article>
+    </template>
+
+    <template id="single">
+        <section class="container">
+            <div class="infoSoft">
+                <div class="infoImg">
+                    <img src="" alt="image">
+                </div>
+                <div class="infoCaracteristas">
+                    <div>
+                        <p>Nombre</p>
+                        <div class="nameInfo">Nombre</div>
+                    </div>
+                    <div>
+                        <p>Precio</p>
+                        <div class="priceChange">precio</div>
+                    </div>
+                    <div>
+                        <p>Simbolo</p>
+                        <div class="symbolInfo">simbolo</div>
+                    </div>
+                </div>
+            </div>
+            <div class="infoHard">
+                <div>
+                    <span>Ranking</span>
+                    <div class="capMark">mercado</div>
+                </div>
+                <div>
+                    <span>Mas bajo últimas 24hs</span>
+                    <div class="low">mas bajo</div>
+                </div>
+                <div>
+                    <span>Mas alto últimas 24hs</span>
+                    <div class="high">mas alto</div>
+                </div>
+                <div>
+                    <span>Sumistro total de monedas</span>
+                    <div class="total">total</div>
+                </div>
+            </div>
+        </section>
+        <div class="button">
+            <button><a href="">Volver</a></button>
+        </div>
+    </template>
+
+    <template id="top10">
+        <div class="cardTop10">
+            <p class="nameTop10"></p>
+            <img src="">
+            <p class="priceTop10"></p>
+        </div>
+    </template>
+    
+
+    <script src="app.js"></script>
+</body>
+</html>
