@@ -274,7 +274,6 @@ document.addEventListener('click', e => {
     if (e.target.innerText === 'Top 10') {
         const fragmentTop10 = document.createDocumentFragment();
         containerTop10.textContent = '';
-        document.querySelector(".listCripto").style.display = 'block';
 
         fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false")
             .then(data => data.json())
@@ -309,17 +308,21 @@ document.addEventListener('click', e => {
                 main.querySelector("h2").textContent = '';
                 changesCripto.textContent = '';
                 cardCripto.textContent = '';
+                main.querySelector(".listCripto").style.display = 'block';
                 main.querySelector(".listCripto").textContent = 'Top 10 Criptomonedas por capitalización de mercado';
                 main.querySelector(".listCripto").id = 'lista';
                 containerTop10.appendChild(fragmentTop10);
                 main.appendChild(containerTop10);
-
+                
             });
     }
     if (e.target.innerText === 'Mas criptos') {
         cardCripto.textContent = '';
         changesCripto.textContent = '';
         containerTop10.textContent = '';
+        main.querySelector('h2').textContent = 'Criptomonedas con mayores cambios % en las ultimas 24hs';
+        main.querySelector(".listCripto").textContent = 'Lista de criptomonedas';
+        main.querySelector(".listCripto").style.display = 'block'; 
         getData(100);
     }
 })
