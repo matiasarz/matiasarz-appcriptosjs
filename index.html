@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CriptoApp</title>
+    <title>Monitoreo cripto</title>
     <link rel="shortcut icon" href="image/logoof.jpg" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/083810b2a0.js" crossorigin="anonymous"></script>
@@ -13,43 +13,53 @@
 
     <header class="header">
         <div id="bar">
-            <div class="fa-solid fa-bars"></div>
+            <div class="searcher">
+                <input type="text" placeholder="Buscar criptomoneda" id="searcher">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="fa-solid fa-bars" id="bars"></div>
         </div>
         <nav class="nav" id="nav">
+            <div class="searcherDesktop">
+                <input type="text" placeholder="Buscar criptomoneda" id="searcherDesktop">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
             <ul>
                 <li><a href="">Inicio</a></li>
-                <li><a href="#listCripto">Lista</a></li>
-                <li><a href="#">Mas cripto</a></li>
+                <li><a href="#lista">Lista</a></li>
+                <li><a href="#">Mas criptos</a></li>
                 <li><a href="#">Top 10</a></li>
             </ul>
         </nav>
     </header>
+    
+    <section class="prueba1" id="getCripto"></section>
+
+    <div class="slideUp">
+        <a href="#nav"><i class="fa-solid fa-circle-up"></i></a>
+    </div>
 
     <main class="main">
-        <section class="moreChanges">
-            <h2>Cripto con mayores cambios porcentuales en 24hs</h2>
+        <h2>Criptomonedas con mayores cambios % en las ultimas 24hs</h2>
+        <section id="changesCripto">
+            
         </section>
-        
-        <section id="listCripto" class="listCripto">
-            <h2>Lista critomonedas</h2>
-            <article class="articleHeader">
-                <span>#</span>
-                <div class="infoName">
-                    <p class="name">Nombre</p>
-                    <span class="symbol">°</span>
-                </div>
-                <p class="price">Precio</p>
-                <div class="infoChange">
-                    <p class="porcentChange">Cambio</p><span>%</span>
-                </div>
-                <p class="listCriptoImg">Cripto</p>
+        <h2 class="listCripto" id="lista">Lista de criptomonedas</h2>
+        <!-- Para diferenciar un poco nada mas -->
+        <section id="cardCripto">
+            <article class="cardCriptoTitle">
+                <span></span>
+                <p class="titleName">Nombre</p>
+                <p class="titlePrice">Precio</p>
+                <p class="titleChange">Cambio %</p>
             </article>
+            <!-- Para diferenciar un poco nada mas -->
         </section>
     </main>
 
     <footer class="footer">
         <div class="footerSub">
-            <img src="https://s.yimg.com/ny/api/res/1.2/JYUmETjO_dK1Cj2wJS49rw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTM2MA--/https://s.yimg.com/uu/api/res/1.2/kdAptSJOJDBENhZ8xqK0UA--~B/aD0xNDQwO3c9MjU2MDthcHBpZD15dGFjaHlvbg--/https://media.zenfs.com/es/forbes_argentina_485/cc9fd43609b23f27434a222128a55412" alt="logo">
+            <img src="image/logoof.jpg" alt="logo">
             <div class="flexFooter">
                 <div>
                     <p>Terminos y condiciones</p>
@@ -60,84 +70,118 @@
             </div>
         </div>
         <p class="developer">Desarrollado por Matias Arzamendia</p>
-    </footer>   
+    </footer>  
 
-    <template id="moreChanges">
-        <article>
+    <template id="templateGetCripto">
+        <article class="flex">
+            <img src="" alt="">
+            <p></p>
+            <span></span>
+        </article>
+    </template>
+    
+    <template id="templateCardCripto"> 
+        <article class="cardCripto">
+            <div class="cardCriptoImg">
+                <img src="" alt="aca va la imagen cripto">
+            </div>
+            <div class="cardCriptoName">
+                <p class="criptoName">Nombre</p>
+                <div class="flex">
+                    <p class="criptoRank">Ranking</p>
+                    <p class="criptoSymbol">Simbolo</p>
+                </div>
+            </div>
+            <div class="cardCriptoPrice">
+                <p>Precio</p>
+            </div>
+            <div class="cardCriptoChange">
+                <p>Cambio %</p>
+            </div>
+        </article>
+    </template>
+
+    <template id="templateChangesCripto">
+        <article class="cardChangesCripto">
+            <p class="changesCriptoName">Name</p>
             <img src="">
-            <p>Price</p>
-            <p class="criptoChange">%change</p>
+            <p class="changesCriptoPrice">Price</p>
+            <p class="changesCriptoChange">%change</p>
         </article>
     </template>
 
-    <template id="listCriptoTemplate">
-        <article>
-            <span class="number">#2</span>
-            <div class="infoName">
-                <p class="name">nombre</p>
-                <span class="symbol">dsfsa</span>
+    <template id="templateCardOneInfo">
+        <article class="cardOneInfo">
+            <div class="cardOneInfoUp">
+                <div class="cardOneImg">
+                    <img src="" alt="">
+                </div>
+                <div class="cardOneInfoData">
+                    <div>
+                        <span>Simbolo</span>
+                        <p class="cardOneSymbol">Simbolo</p>
+                    </div>
+                    <div>
+                        <span>Ranking</span>
+                        <p class="cardOneRank">Ranking</p>
+                    </div>
+                    <div>
+                        <span>Monedas en circulación</span>
+                        <p class="cardOneSupply">Suministro circulante</p>
+                    </div>
+                </div>
             </div>
-            <p class="price">1000</p>
-            <div class="infoChange">
-                <p class="porcentChange">2000</p><span>%</span>
+            <div class="cardOneInfoDown">
+                <div class="size-1">
+                    <span class="sizePrice">Precio</span>
+                    <p class="cardOnePrice"></p>
+                </div>
+                <div class="size-2">
+                    <span class="sizeHigh">Más alto en 24hs</span>
+                    <p class="cardOneHigh"></p>
+                </div>
+                <div class="size-3">
+                    <span class="sizeLow">Más bajo en 24hs</span>
+                    <p class="cardOneLow"></p>
+                </div>
+                <div class="size-4">
+                    <span class="sizeTotalSupply">Suministro total</span>
+                    <p class="cardOneTotalSupply">Suministro total</p>
+                </div>
             </div>
-            <img src="" alt="cripto-image" class="listCriptoImg">
         </article>
-    </template>
-
-    <template id="single">
-        <section class="container">
-            <div class="infoSoft">
-                <div class="infoImg">
-                    <img src="" alt="image">
+        <div class="exchangeRate">
+            <div class="exchangeRateInfo">
+                <div class="flex">
+                    <img src="">
+                    <span></span>
                 </div>
-                <div class="infoCaracteristas">
-                    <div>
-                        <p>Nombre</p>
-                        <div class="nameInfo">Nombre</div>
-                    </div>
-                    <div>
-                        <p>Precio</p>
-                        <div class="priceChange">precio</div>
-                    </div>
-                    <div>
-                        <p>Simbolo</p>
-                        <div class="symbolInfo">simbolo</div>
-                    </div>
-                </div>
+                <input type="number" id="original" placeholder="Ingrese cantidad">
             </div>
-            <div class="infoHard">
-                <div>
-                    <span>Ranking</span>
-                    <div class="capMark">mercado</div>
-                </div>
-                <div>
-                    <span>Mas bajo últimas 24hs</span>
-                    <div class="low">mas bajo</div>
-                </div>
-                <div>
-                    <span>Mas alto últimas 24hs</span>
-                    <div class="high">mas alto</div>
-                </div>
-                <div>
-                    <span>Sumistro total de monedas</span>
-                    <div class="total">total</div>
-                </div>
+            <div class="reverse">
+                <i class="fa-solid fa-sort" id="reverse"></i>
             </div>
-        </section>
+            <div class="exchangeRateInfo">
+                <select class="moneyExchange">
+                    <option value="USD" selected>USD</option>
+                    <option value="ARS">ARS</option>
+                </select>
+                <input type="text" id="money" readonly="true" placeholder="Cotización">
+            </div>
+        </div>
         <div class="button">
             <button><a href="">Volver</a></button>
         </div>
     </template>
 
-    <template id="top10">
-        <div class="cardTop10">
-            <p class="nameTop10"></p>
+    <template id="templateTop10">
+        <article class="cardChangesCripto">
+            <p class="changesCriptoName">Name</p>
             <img src="">
-            <p class="priceTop10"></p>
-        </div>
+            <p class="changesCriptoPrice">Price</p>
+            <p class="changesCriptoChange">%change</p>
+        </article>
     </template>
-    
 
     <script src="app.js"></script>
 </body>
