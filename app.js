@@ -16,6 +16,9 @@ const fragmentChangesCripto = document.createDocumentFragment();
 // Elementos de informacion individual
 const templateCardOneInfo = document.getElementById("templateCardOneInfo").content;
 
+// Titulo cripto
+const templateCardCriptoTitle = document.getElementById('templateCardCriptoTitle').content;
+
 // Buscador en el navbar 
 const searcher = document.getElementById("searcher");
 const getCripto = document.getElementById("getCripto");
@@ -68,12 +71,14 @@ const getData = async (cantidad) => {
         clone.querySelector(".cardCriptoImg img").src = image;
 
         clone.querySelector(".cardCriptoChange p").innerText > "0" ? clone.querySelector(".cardCriptoChange p").classList.add("green") : clone.querySelector(".cardCriptoChange p").classList.add("red");
-
+        
         clone.querySelector(".cardCriptoChange p").innerText > "0" ? clone.querySelector(".cardCriptoChange p").classList.add("fa-solid","fa-caret-up") : clone.querySelector(".cardCriptoChange p").classList.add("fa-solid","fa-caret-down");
-
+        
         fragmentCardCripto.appendChild(clone);
     })
-    cardCripto.appendChild(fragmentCardCripto)
+    const cloneTitle = templateCardCriptoTitle.cloneNode(true);
+    cardCripto.appendChild(cloneTitle);
+    cardCripto.appendChild(fragmentCardCripto);
 
     let higherChangePositive = higherChange.map(item => item < 0 ? item * -1 : item);
     higherChangePositive.sort(comparar)
@@ -271,7 +276,11 @@ openNavButton.addEventListener("click",(e) => {
 
 // Top 10 y mas criptos
 document.addEventListener('click', e => {
+    if (e.target.innerText === 'Lista') {
+        openNavButton.click();
+    }
     if (e.target.innerText === 'Top 10') {
+        openNavButton.click();
         const fragmentTop10 = document.createDocumentFragment();
         containerTop10.textContent = '';
 
@@ -317,6 +326,7 @@ document.addEventListener('click', e => {
             });
     }
     if (e.target.innerText === 'Mas criptos') {
+        openNavButton.click();
         cardCripto.textContent = '';
         changesCripto.textContent = '';
         containerTop10.textContent = '';
